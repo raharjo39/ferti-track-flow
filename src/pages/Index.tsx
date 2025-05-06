@@ -20,9 +20,14 @@ const Index = () => {
       <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-          <p className="text-muted-foreground">
-            RFID-Based Fertilizer Asset and Supply Chain Management System
-          </p>
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+            <p className="text-muted-foreground">
+              Sistem Manajemen Rantai Pasok Pupuk Berbasis RFID
+            </p>
+            <div className="text-sm text-muted-foreground">
+              <span className="font-medium">Prepared by:</span> Galactic Indonesia Perkasa
+            </div>
+          </div>
         </div>
 
         {/* Stats Overview */}

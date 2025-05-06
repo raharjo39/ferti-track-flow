@@ -50,12 +50,12 @@ const AppSidebar = () => {
         <div className="flex items-center space-x-2 px-4">
           <div className="bg-white rounded-lg p-1">
             <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center text-white font-bold">
-              RF
+              FT
             </div>
           </div>
           <div>
             <h2 className="text-white font-bold text-lg">FertiTrack</h2>
-            <p className="text-green-100 text-xs">RFID Tracking System</p>
+            <p className="text-green-100 text-xs">ASIX Indonesia Cerdas</p>
           </div>
         </div>
       </SidebarHeader>
@@ -84,7 +84,7 @@ const AppSidebar = () => {
         <div className="px-4">
           <div className="bg-sidebar-accent p-3 rounded-md">
             <p className="text-sidebar-accent-foreground text-xs">
-              RFID-Based Fertilizer Asset and Supply Chain Management System
+              Sistem Manajemen Rantai Pasok Pupuk Berbasis RFID
             </p>
           </div>
         </div>

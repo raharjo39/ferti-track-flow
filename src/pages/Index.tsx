@@ -4,8 +4,9 @@ import StatCard from "@/components/dashboard/StatCard";
 import { Database, MapPin, Scan, Smartphone, Check } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import ScanLogTable from "@/components/dashboard/ScanLogTable";
-import { mockSacks, mockScanEvents } from "@/data/mockData";
+import { mockSacks, mockScanEvents, farmerPersonas } from "@/data/mockData";
 import SackMap from "@/components/dashboard/SackMap";
+import FarmerPersona from "@/components/dashboard/FarmerPersona";
 
 const Index = () => {
   // Calculate stats
@@ -64,9 +65,9 @@ const Index = () => {
           <div className="space-y-4">
             <Card>
               <CardHeader>
-                <CardTitle>Sack Location Map</CardTitle>
+                <CardTitle>Lokasi Karung Pupuk</CardTitle>
                 <CardDescription>
-                  Real-time location tracking of fertilizer sacks
+                  Pelacakan lokasi karung pupuk secara real-time
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -79,15 +80,25 @@ const Index = () => {
           <div className="space-y-4">
             <Card>
               <CardHeader>
-                <CardTitle>Recent RFID Scans</CardTitle>
+                <CardTitle>Pemindaian RFID Terbaru</CardTitle>
                 <CardDescription>
-                  Latest activities in the system
+                  Aktivitas terbaru dalam sistem
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <ScanLogTable events={mockScanEvents} limit={5} />
               </CardContent>
             </Card>
+          </div>
+        </div>
+
+        {/* Farmer Personas */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold tracking-tight">Profil Petani</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {farmerPersonas.map((farmer) => (
+              <FarmerPersona key={farmer.id} farmer={farmer} />
+            ))}
           </div>
         </div>
       </div>

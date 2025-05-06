@@ -37,3 +37,27 @@ export interface User {
   role: 'warehouse-manager' | 'field-officer' | 'farmer';
   location?: string;
 }
+
+export interface FarmerPersona {
+  id: string;
+  name: string;
+  age: number;
+  location: {
+    village: string;
+    district: string;
+    regency: string;
+    province: string;
+    coordinates: {
+      lat: number;
+      lng: number;
+    }
+  };
+  photo: string;
+  farmDetails: {
+    size: string;
+    crops: string[];
+    annualProduction: string;
+    fertilizerUsage: string;
+  };
+  bio: string;
+}

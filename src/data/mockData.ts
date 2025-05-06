@@ -1,16 +1,15 @@
-
 import { SackData, ScanEvent, User } from "../types";
 
-// Mock RFID sack data
+// Mock RFID sack data with Indonesian locations
 export const mockSacks: SackData[] = [
   {
     id: "S001",
     rfidTag: "RFID-001-2025-XYZ",
     status: "at-warehouse",
     location: {
-      lat: 1.289494,
-      lng: 103.849983,
-      name: "Central Warehouse"
+      lat: -6.1753924,
+      lng: 106.8271528,
+      name: "Gudang Pusat Jakarta"
     },
     timestamps: {
       created: "2025-05-01T08:00:00Z",
@@ -23,9 +22,9 @@ export const mockSacks: SackData[] = [
     rfidTag: "RFID-002-2025-XYZ",
     status: "in-transit",
     location: {
-      lat: 1.301256,
-      lng: 103.856677,
-      name: "In Transit"
+      lat: -6.5943859,
+      lng: 106.789917,
+      name: "Dalam Perjalanan ke Bogor"
     },
     timestamps: {
       created: "2025-05-01T08:05:00Z",
@@ -39,9 +38,9 @@ export const mockSacks: SackData[] = [
     rfidTag: "RFID-003-2025-XYZ",
     status: "at-field-site",
     location: {
-      lat: 1.320114,
-      lng: 103.879509,
-      name: "Eastern Field Distribution Center"
+      lat: -6.6111859,
+      lng: 106.8066626,
+      name: "Pusat Distribusi Bogor"
     },
     timestamps: {
       created: "2025-05-01T08:10:00Z",
@@ -56,9 +55,9 @@ export const mockSacks: SackData[] = [
     rfidTag: "RFID-004-2025-XYZ",
     status: "with-farmer",
     location: {
-      lat: 1.334627,
-      lng: 103.894470,
-      name: "Farmer John's Plantation"
+      lat: -6.5984157,
+      lng: 106.7976839,
+      name: "Kebun Pak Joko"
     },
     timestamps: {
       created: "2025-05-01T08:15:00Z",
@@ -69,16 +68,16 @@ export const mockSacks: SackData[] = [
     },
     proofImage: "/placeholder.svg",
     batch: "BT-2025-001",
-    farmer: "Farmer John"
+    farmer: "Pak Joko"
   },
   {
     id: "S005",
     rfidTag: "RFID-005-2025-XYZ",
     status: "empty-returned",
     location: {
-      lat: 1.320114,
-      lng: 103.879509,
-      name: "Eastern Field Distribution Center"
+      lat: -6.6111859,
+      lng: 106.8066626,
+      name: "Pusat Distribusi Bogor"
     },
     timestamps: {
       created: "2025-04-25T08:20:00Z",
@@ -89,7 +88,7 @@ export const mockSacks: SackData[] = [
       returned: "2025-05-05T08:15:00Z"
     },
     batch: "BT-2025-001",
-    farmer: "Farmer Lisa"
+    farmer: "Bu Siti"
   }
 ];
 
@@ -98,84 +97,84 @@ export const mockScanEvents: ScanEvent[] = [
   {
     id: "E001",
     type: "gate",
-    location: "Central Warehouse",
+    location: "Gudang Pusat Jakarta",
     timestamp: "2025-05-01T08:30:00Z",
     rfidTag: "RFID-001-2025-XYZ",
-    status: "Registered at warehouse",
-    operator: "Alex Chen"
+    status: "Terdaftar di gudang",
+    operator: "Budi Santoso"
   },
   {
     id: "E002",
     type: "gate",
-    location: "Central Warehouse Exit",
+    location: "Gudang Pusat Jakarta",
     timestamp: "2025-05-05T09:15:00Z",
     rfidTag: "RFID-002-2025-XYZ",
-    status: "Dispatched from warehouse",
-    operator: "Alex Chen"
+    status: "Dikirim dari gudang",
+    operator: "Budi Santoso"
   },
   {
     id: "E003",
     type: "gate",
-    location: "Eastern Field Distribution Center",
+    location: "Pusat Distribusi Bogor",
     timestamp: "2025-05-05T10:45:00Z",
     rfidTag: "RFID-003-2025-XYZ",
-    status: "Arrived at field site",
-    operator: "Maria Wong"
+    status: "Sampai di lokasi lapangan",
+    operator: "Wati Susanti"
   },
   {
     id: "E004",
     type: "gun",
-    location: "Eastern Field Distribution Center",
+    location: "Pusat Distribusi Bogor",
     timestamp: "2025-05-05T13:20:00Z",
     rfidTag: "RFID-004-2025-XYZ",
-    status: "Selected for farmer distribution",
-    operator: "Maria Wong"
+    status: "Dipilih untuk distribusi ke petani",
+    operator: "Wati Susanti"
   },
   {
     id: "E005",
     type: "gun",
-    location: "Farmer John's Plantation",
+    location: "Kebun Pak Joko",
     timestamp: "2025-05-05T14:30:00Z",
     rfidTag: "RFID-004-2025-XYZ",
-    status: "Delivered to farmer",
-    operator: "John Smith"
+    status: "Dikirim ke petani",
+    operator: "Joko Widodo"
   },
   {
     id: "E006",
     type: "gun",
-    location: "Eastern Field Distribution Center",
+    location: "Pusat Distribusi Bogor",
     timestamp: "2025-05-05T08:15:00Z",
     rfidTag: "RFID-005-2025-XYZ",
-    status: "Empty sack returned",
-    operator: "Lisa Chen"
+    status: "Karung kosong dikembalikan",
+    operator: "Siti Aminah"
   }
 ];
 
-// Mock users
+// Mock users with Indonesian profiles
 export const mockUsers: User[] = [
   {
     id: "U001",
-    name: "Alex Chen",
+    name: "Budi Santoso",
     role: "warehouse-manager",
-    location: "Central Warehouse"
+    location: "Gudang Pusat Jakarta"
   },
   {
     id: "U002",
-    name: "Maria Wong",
+    name: "Wati Susanti",
     role: "field-officer",
-    location: "Eastern Field Distribution Center"
+    location: "Pusat Distribusi Bogor"
   },
   {
     id: "U003",
-    name: "John Smith",
+    name: "Joko Widodo",
     role: "farmer",
-    location: "Northern Plantation"
+    location: "Perkebunan Bogor Utara"
   },
   {
     id: "U004",
-    name: "Lisa Chen",
+    name: "Siti Aminah",
     role: "farmer",
-    location: "Eastern Plantation"
+    location: "Perkebunan Bogor Timur"
   }
 ];
 
@@ -213,3 +212,76 @@ export const getStatusLabel = (status: string): string => {
       return status;
   }
 };
+
+// Indonesian farmer personas with detailed information
+export const farmerPersonas = [
+  {
+    id: "F001",
+    name: "Pak Joko",
+    age: 45,
+    location: {
+      village: "Desa Suka Makmur",
+      district: "Kecamatan Citeureup",
+      regency: "Kabupaten Bogor",
+      province: "Jawa Barat",
+      coordinates: {
+        lat: -6.5984157,
+        lng: 106.7976839
+      }
+    },
+    photo: "/placeholder.svg",
+    farmDetails: {
+      size: "2.5 hektar",
+      crops: ["Padi", "Jagung", "Singkong"],
+      annualProduction: "12 ton padi, 8 ton jagung",
+      fertilizerUsage: "250kg/hektar"
+    },
+    bio: "Pak Joko telah bertani selama lebih dari 20 tahun. Ia mengelola lahan warisan keluarga dan telah mengadopsi beberapa teknologi pertanian modern."
+  },
+  {
+    id: "F002",
+    name: "Bu Siti",
+    age: 38,
+    location: {
+      village: "Desa Tani Jaya",
+      district: "Kecamatan Ciomas",
+      regency: "Kabupaten Bogor",
+      province: "Jawa Barat",
+      coordinates: {
+        lat: -6.6057128,
+        lng: 106.8231301
+      }
+    },
+    photo: "/placeholder.svg",
+    farmDetails: {
+      size: "1.8 hektar",
+      crops: ["Padi", "Sayuran"],
+      annualProduction: "9 ton padi, 5 ton sayuran campuran",
+      fertilizerUsage: "200kg/hektar"
+    },
+    bio: "Bu Siti adalah ketua kelompok tani wanita di desanya. Dia fokus pada pertanian berkelanjutan dan telah membantu banyak petani mengadopsi praktik pertanian ramah lingkungan."
+  },
+  {
+    id: "F003",
+    name: "Pak Andi",
+    age: 52,
+    location: {
+      village: "Desa Sumber Makmur",
+      district: "Kecamatan Tenjolaya",
+      regency: "Kabupaten Bogor",
+      province: "Jawa Barat",
+      coordinates: {
+        lat: -6.6641948,
+        lng: 106.7054335
+      }
+    },
+    photo: "/placeholder.svg",
+    farmDetails: {
+      size: "3.2 hektar",
+      crops: ["Padi", "Kedelai", "Cabai"],
+      annualProduction: "15 ton padi, 2 ton kedelai, 4 ton cabai",
+      fertilizerUsage: "300kg/hektar"
+    },
+    bio: "Pak Andi adalah generasi ketiga dari keluarga petani. Dia telah berhasil menerapkan sistem rotasi tanaman yang meningkatkan produktivitas lahannya."
+  }
+];

@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { MapPin, Plant, Home, Ruler } from "lucide-react";
+import { MapPin, Sprout, Home, Ruler } from "lucide-react";
 
 interface FarmerPersonaProps {
   farmer: {
@@ -58,7 +58,7 @@ const FarmerPersona = ({ farmer }: FarmerPersonaProps) => {
         
         <div>
           <h4 className="text-sm font-semibold mb-1 flex items-center gap-2">
-            <Plant className="h-4 w-4" /> Informasi Pertanian
+            <Sprout className="h-4 w-4" /> Informasi Pertanian
           </h4>
           <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
             <div className="flex items-center gap-2">
@@ -68,7 +68,7 @@ const FarmerPersona = ({ farmer }: FarmerPersonaProps) => {
             <div>{farmer.farmDetails.size}</div>
             
             <div className="flex items-center gap-2">
-              <Plant className="h-3 w-3 text-gray-500" /> 
+              <Sprout className="h-3 w-3 text-gray-500" /> 
               <span>Tanaman:</span>
             </div>
             <div>{farmer.farmDetails.crops.join(', ')}</div>

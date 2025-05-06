@@ -28,15 +28,15 @@ const StatusBadge = ({ status, label, className }: StatusBadgeProps) => {
   const getStatusLabel = (status: string): string => {
     switch (status) {
       case 'at-warehouse':
-        return 'At Warehouse';
+        return 'Di Gudang';
       case 'in-transit':
-        return 'In Transit';
+        return 'Dalam Perjalanan';
       case 'at-field-site':
-        return 'At Field Site';
+        return 'Di Pusat Lapangan';
       case 'with-farmer':
-        return 'With Farmer';
+        return 'Dengan Petani';
       case 'empty-returned':
-        return 'Empty Returned';
+        return 'Karung Dikembalikan';
       default:
         return status;
     }

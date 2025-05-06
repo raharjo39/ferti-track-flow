@@ -44,17 +44,17 @@ const Tracking = () => {
     <DashboardLayout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Tracking Map</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Peta Tracking</h1>
           <p className="text-muted-foreground">
-            Real-time fertilizer sack location tracking and history
+            Pelacakan lokasi karung pupuk secara real-time dan riwayat perjalanan
           </p>
         </div>
         
         <Card>
           <CardHeader>
-            <CardTitle>Search Sack</CardTitle>
+            <CardTitle>Cari Karung</CardTitle>
             <CardDescription>
-              Find a specific sack by ID or RFID tag
+              Temukan karung spesifik berdasarkan ID atau tag RFID
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -63,19 +63,19 @@ const Tracking = () => {
                 <Input
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
-                  placeholder="Enter sack ID or RFID tag..."
+                  placeholder="Masukkan ID karung atau tag RFID..."
                   onKeyDown={e => e.key === 'Enter' && handleSearch()}
                 />
               </div>
               <Button onClick={handleSearch}>
                 <Search className="h-4 w-4 mr-2" />
-                Search
+                Cari
               </Button>
             </div>
             
             {selectedSack && (
               <div className="mt-4 border-t pt-4">
-                <Label className="text-sm">Search Results:</Label>
+                <Label className="text-sm">Hasil Pencarian:</Label>
                 <div className="mt-2">
                   <SackCard sack={selectedSack} />
                 </div>
@@ -87,9 +87,9 @@ const Tracking = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
-              <CardTitle>Location Map</CardTitle>
+              <CardTitle>Peta Lokasi</CardTitle>
               <CardDescription>
-                Real-time tracking of all fertilizer sacks
+                Pelacakan real-time untuk semua karung pupuk
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -99,9 +99,9 @@ const Tracking = () => {
           
           <Card>
             <CardHeader>
-              <CardTitle>Status Overview</CardTitle>
+              <CardTitle>Ikhtisar Status</CardTitle>
               <CardDescription>
-                Current status of all sacks in the system
+                Status terkini semua karung dalam sistem
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -120,18 +120,18 @@ const Tracking = () => {
               <div className="space-y-4">
                 {selectedSack ? (
                   <div className="space-y-4">
-                    <h3 className="text-lg font-medium">Sack {selectedSack.id} Journey</h3>
+                    <h3 className="text-lg font-medium">Perjalanan Karung {selectedSack.id}</h3>
                     <SackFlow sack={selectedSack} />
                     
                     <div className="border-t pt-4">
-                      <h4 className="font-medium mb-2">Scan History</h4>
+                      <h4 className="font-medium mb-2">Riwayat Pemindaian</h4>
                       <ScanLogTable events={getFilteredEvents(selectedSack.id)} />
                     </div>
                   </div>
                 ) : (
                   <div className="text-center py-6 text-muted-foreground">
-                    <p>Search for a sack to view detailed tracking information</p>
-                    <p className="text-sm mt-1">Or click on a map marker for quick info</p>
+                    <p>Cari karung untuk melihat informasi pelacakan detail</p>
+                    <p className="text-sm mt-1">Atau klik pada penanda peta untuk info cepat</p>
                   </div>
                 )}
               </div>

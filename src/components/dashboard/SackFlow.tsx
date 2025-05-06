@@ -8,11 +8,11 @@ interface SackFlowProps {
 
 const SackFlow = ({ sack }: SackFlowProps) => {
   const steps = [
-    { key: 'warehouse', label: 'Warehouse', date: sack.timestamps.warehouse },
-    { key: 'inTransit', label: 'In Transit', date: sack.timestamps.inTransit },
-    { key: 'fieldSite', label: 'Field Site', date: sack.timestamps.fieldSite },
-    { key: 'farmer', label: 'Farmer', date: sack.timestamps.farmer },
-    { key: 'returned', label: 'Returned', date: sack.timestamps.returned },
+    { key: 'warehouse', label: 'Gudang', date: sack.timestamps.warehouse },
+    { key: 'inTransit', label: 'Dalam Perjalanan', date: sack.timestamps.inTransit },
+    { key: 'fieldSite', label: 'Pusat Lapangan', date: sack.timestamps.fieldSite },
+    { key: 'farmer', label: 'Petani', date: sack.timestamps.farmer },
+    { key: 'returned', label: 'Dikembalikan', date: sack.timestamps.returned },
   ];
 
   // Function to determine which step is active based on sack status
@@ -53,7 +53,7 @@ const SackFlow = ({ sack }: SackFlowProps) => {
               </div>
               {step.date && (
                 <div className="mt-1 text-[10px] text-gray-500">
-                  {new Date(step.date).toLocaleDateString()}
+                  {new Date(step.date).toLocaleDateString('id-ID')}
                 </div>
               )}
             </div>

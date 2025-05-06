@@ -3,6 +3,7 @@ import { SackData } from "@/types";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import StatusBadge from "./StatusBadge";
 import { format } from "date-fns";
+import { id } from "date-fns/locale";
 
 interface SackCardProps {
   sack: SackData;
@@ -11,21 +12,21 @@ interface SackCardProps {
 const SackCard = ({ sack }: SackCardProps) => {
   const formatDate = (dateString?: string) => {
     if (!dateString) return "N/A";
-    return format(new Date(dateString), "PPP p");
+    return format(new Date(dateString), "PPP p", { locale: id });
   };
 
   return (
     <Card className="hover:shadow-md transition-shadow">
       <CardHeader className="pb-2">
         <div className="flex justify-between items-start">
-          <CardTitle className="text-lg font-medium">Sack {sack.id}</CardTitle>
+          <CardTitle className="text-lg font-medium">Karung {sack.id}</CardTitle>
           <StatusBadge status={sack.status} />
         </div>
       </CardHeader>
       <CardContent className="pb-2">
         <div className="space-y-2 text-sm">
           <div className="flex justify-between">
-            <span className="text-muted-foreground">RFID Tag:</span>
+            <span className="text-muted-foreground">Tag RFID:</span>
             <span className="font-mono">{sack.rfidTag}</span>
           </div>
           <div className="flex justify-between">
@@ -33,19 +34,19 @@ const SackCard = ({ sack }: SackCardProps) => {
             <span>{sack.batch}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-muted-foreground">Location:</span>
-            <span>{sack.location?.name || "Unknown"}</span>
+            <span className="text-muted-foreground">Lokasi:</span>
+            <span>{sack.location?.name || "Tidak diketahui"}</span>
           </div>
           {sack.farmer && (
             <div className="flex justify-between">
-              <span className="text-muted-foreground">Farmer:</span>
+              <span className="text-muted-foreground">Petani:</span>
               <span>{sack.farmer}</span>
             </div>
           )}
         </div>
       </CardContent>
       <CardFooter className="pt-0 text-xs text-muted-foreground">
-        Last Updated: {formatDate(getLatestTimestamp(sack))}
+        Terakhir Diperbarui: {formatDate(getLatestTimestamp(sack))}
       </CardFooter>
     </Card>
   );

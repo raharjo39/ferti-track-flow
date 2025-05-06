@@ -45,8 +45,8 @@ const SackMap = ({ sacks }: SackMapProps) => {
   // Initialize map when component mounts
   useEffect(() => {
     if (mapRef.current && !leafletMap.current) {
-      // Initialize the map
-      leafletMap.current = L.map(mapRef.current).setView([-6.5984157, 106.7976839], 10);
+      // Initialize the map centered on Indonesia
+      leafletMap.current = L.map(mapRef.current).setView([-2.5489, 118.0149], 5);
 
       // Add OpenStreetMap tiles
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -73,12 +73,12 @@ const SackMap = ({ sacks }: SackMapProps) => {
     // Clear existing markers
     markersLayer.current.clearLayers();
 
-    // Create custom marker icon
-    const createMarkerIcon = (status: string) => {
-      const markerColor = getMarkerColor(status);
+    // Create custom marker icons
+    const createCustomIcon = (status: string) => {
+      const color = getMarkerColor(status);
       return L.divIcon({
-        className: `custom-marker-icon marker-${markerColor}`,
-        html: `<div class="marker-pin bg-${markerColor}-500"></div>`,
+        className: 'custom-marker',
+        html: `<div class="marker-pin bg-${color}-500"></div>`,
         iconSize: [30, 42],
         iconAnchor: [15, 42]
       });
@@ -88,9 +88,12 @@ const SackMap = ({ sacks }: SackMapProps) => {
     sacks.forEach(sack => {
       if (sack.location && sack.location.lat && sack.location.lng) {
         const marker = L.marker([sack.location.lat, sack.location.lng], {
-          icon: createMarkerIcon(sack.status),
+          icon: createCustomIcon(sack.status),
           title: sack.location.name
         }).addTo(markersLayer.current!);
+
+        // Add tooltip with location name
+        marker.bindTooltip(sack.location.name);
 
         // Add click event to marker
         marker.on('click', () => {
@@ -98,6 +101,42 @@ const SackMap = ({ sacks }: SackMapProps) => {
         });
       }
     });
+
+    // Add CSS for custom markers if it doesn't exist
+    if (!document.getElementById('marker-styles')) {
+      const styleEl = document.createElement('style');
+      styleEl.id = 'marker-styles';
+      styleEl.innerHTML = `
+        .custom-marker {
+          background-color: transparent;
+          border: none;
+        }
+        .marker-pin {
+          width: 18px;
+          height: 18px;
+          border-radius: 50% 50% 50% 0;
+          transform: rotate(-45deg);
+          position: relative;
+          box-shadow: 0 0 4px rgba(0,0,0,0.3);
+        }
+        .marker-pin::after {
+          content: '';
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: white;
+          position: absolute;
+          top: 4px;
+          left: 4px;
+        }
+        .bg-blue-500 { background: #3b82f6; }
+        .bg-orange-500 { background: #f97316; }
+        .bg-purple-500 { background: #a855f7; }
+        .bg-green-500 { background: #22c55e; }
+        .bg-gray-500 { background: #6b7280; }
+      `;
+      document.head.appendChild(styleEl);
+    }
 
     // Adjust map view to fit all markers
     if (sacks.length > 0 && markersLayer.current.getLayers().length > 0) {
@@ -117,7 +156,7 @@ const SackMap = ({ sacks }: SackMapProps) => {
           className="absolute bottom-4 right-4 bg-white p-3 rounded-md shadow-md max-w-[200px] z-[1000]"
         >
           <div className="flex justify-between items-start mb-2">
-            <h4 className="font-medium">Sack {selectedSack.id}</h4>
+            <h4 className="font-medium">Karung {selectedSack.id}</h4>
             <button 
               className="text-gray-500 text-xs"
               onClick={() => setSelectedSack(null)}

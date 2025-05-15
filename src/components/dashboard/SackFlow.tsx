@@ -76,7 +76,8 @@ const SackFlow = ({ sack }: SackFlowProps) => {
         </div>
         
         {/* Add CSS for the active step animation */}
-        <style jsx>{`
+        <style>
+          {`
           .flow-active-step {
             box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
             animation: pulse 2s infinite;
@@ -93,7 +94,8 @@ const SackFlow = ({ sack }: SackFlowProps) => {
               box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
             }
           }
-        `}</style>
+          `}
+        </style>
       </div>
     </div>
   );

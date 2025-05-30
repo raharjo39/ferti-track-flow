@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { User, Lock, LogIn } from "lucide-react";
+import { User, Lock, LogIn, Zap } from "lucide-react";
 import { toast } from "sonner";
 
 interface LoginProps {
@@ -30,6 +30,11 @@ const Login = ({ onLogin }: LoginProps) => {
       }
       setIsLoading(false);
     }, 1000);
+  };
+
+  const handleDemoMode = () => {
+    toast.success("Entering demo mode! Welcome to FertiTrack.");
+    onLogin();
   };
 
   return (
@@ -98,6 +103,30 @@ const Login = ({ onLogin }: LoginProps) => {
               )}
             </Button>
           </form>
+          
+          <div className="mt-4 space-y-3">
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center">
+                <span className="w-full border-t" />
+              </div>
+              <div className="relative flex justify-center text-xs uppercase">
+                <span className="bg-background px-2 text-muted-foreground">Or</span>
+              </div>
+            </div>
+            
+            <Button 
+              type="button"
+              variant="outline"
+              className="w-full border-orange-300 text-orange-700 hover:bg-orange-50"
+              onClick={handleDemoMode}
+            >
+              <div className="flex items-center gap-2">
+                <Zap className="h-4 w-4" />
+                Demo Mode
+              </div>
+            </Button>
+          </div>
+          
           <div className="mt-4 text-center text-sm text-gray-600">
             Demo credentials: Use any email and password
           </div>

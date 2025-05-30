@@ -13,7 +13,7 @@ import {
   SidebarMenuItem,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const menuItems = [
   {
@@ -44,6 +44,8 @@ const menuItems = [
 ];
 
 const AppSidebar = () => {
+  const location = useLocation();
+
   return (
     <Sidebar>
       <SidebarHeader className="py-4">
@@ -67,7 +69,7 @@ const AppSidebar = () => {
             <SidebarMenu>
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.path}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton asChild isActive={location.pathname === item.path}>
                     <Link to={item.path} className="flex items-center">
                       <item.icon className="mr-2 h-5 w-5" />
                       <span>{item.title}</span>
@@ -89,8 +91,6 @@ const AppSidebar = () => {
           </div>
         </div>
       </SidebarFooter>
-      
-      <SidebarTrigger className="absolute top-4 right-2 bg-green-600 text-white" />
     </Sidebar>
   );
 };

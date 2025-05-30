@@ -26,15 +26,12 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
             <div>
               <p className="text-muted-foreground">
-                Sistem Manajemen Rantai Pasok Pupuk Berbasis RFID & IoT
+                Smart RFID & IoT-based Fertilizer Supply Chain Management System
               </p>
               <p className="text-xs text-green-600 mt-1 font-medium">
-                ✓ Tracking Digital Twin Aktif | 
-                ✓ 12 Unit IoT Terhubung
+                ✓ Digital Twin Tracking Active | 
+                ✓ 12 IoT Units Connected
               </p>
-            </div>
-            <div className="text-sm text-muted-foreground">
-              <span className="font-medium">Prepared by:</span> Galactic Indonesia Perkasa
             </div>
           </div>
         </div>
@@ -44,7 +41,7 @@ const Index = () => {
           <CardHeader className="pb-3">
             <CardTitle>Smart Process Flow</CardTitle>
             <CardDescription>
-              Aliran proses digital dari gudang ke petani dan pengembalian
+              Digital process flow from warehouse to farmers and returns
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -89,7 +86,7 @@ const Index = () => {
                 <div>
                   <CardTitle>Digital Twin Tracking</CardTitle>
                   <CardDescription>
-                    Pelacakan real-time dengan visual drone/satelit
+                    Real-time tracking with drone/satellite visuals
                   </CardDescription>
                 </div>
                 <Tabs defaultValue="map" className="w-[200px]">
@@ -109,9 +106,9 @@ const Index = () => {
           <div className="space-y-4">
             <Card>
               <CardHeader>
-                <CardTitle>Pemindaian IoT & RFID Terbaru</CardTitle>
+                <CardTitle>Latest IoT & RFID Scans</CardTitle>
                 <CardDescription>
-                  Aktivitas dan data sensor terbaru
+                  Recent activities and sensor data
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -125,27 +122,27 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <Card className="lg:col-span-2">
             <CardHeader>
-              <CardTitle>Monitoring Kondisi IoT</CardTitle>
+              <CardTitle>IoT Condition Monitoring</CardTitle>
               <CardDescription>
-                Data sensor dari karung pupuk dalam perjalanan
+                Sensor data from fertilizer sacks in transit
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
                 <div className="border rounded-lg p-3 flex flex-col items-center">
-                  <div className="text-xs text-gray-500 mb-1">KELEMBABAN</div>
+                  <div className="text-xs text-gray-500 mb-1">HUMIDITY</div>
                   <div className="text-2xl font-bold">67%</div>
                   <div className="text-xs text-green-600">✓ Normal</div>
                 </div>
                 <div className="border rounded-lg p-3 flex flex-col items-center">
-                  <div className="text-xs text-gray-500 mb-1">SUHU</div>
+                  <div className="text-xs text-gray-500 mb-1">TEMPERATURE</div>
                   <div className="text-2xl font-bold">26°C</div>
                   <div className="text-xs text-green-600">✓ Normal</div>
                 </div>
                 <div className="border rounded-lg p-3 flex flex-col items-center">
-                  <div className="text-xs text-gray-500 mb-1">POSISI GPS</div>
+                  <div className="text-xs text-gray-500 mb-1">GPS POSITION</div>
                   <div className="text-2xl font-bold">100%</div>
-                  <div className="text-xs text-green-600">✓ Aktif</div>
+                  <div className="text-xs text-green-600">✓ Active</div>
                 </div>
               </div>
             </CardContent>
@@ -153,9 +150,9 @@ const Index = () => {
           
           <Card>
             <CardHeader>
-              <CardTitle>Gamifikasi Petani</CardTitle>
+              <CardTitle>Farmer Gamification</CardTitle>
               <CardDescription>
-                Program reward untuk pengembalian karung
+                Reward program for sack returns
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -163,12 +160,12 @@ const Index = () => {
                 <div className="inline-block rounded-full bg-green-100 p-3 mb-2">
                   <Check className="h-6 w-6 text-green-600" />
                 </div>
-                <div className="font-medium">Siklus Pengembalian</div>
+                <div className="font-medium">Return Cycles</div>
                 <div className="text-3xl font-bold mt-1">{completedCycles}</div>
-                <div className="text-xs text-gray-500 mt-1">Total Selesai</div>
+                <div className="text-xs text-gray-500 mt-1">Total Completed</div>
                 
                 <div className="mt-4 text-left">
-                  <div className="text-sm font-medium mb-1">Poin Rewards</div>
+                  <div className="text-sm font-medium mb-1">Reward Points</div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div 
                       className="bg-green-500 h-2 rounded-full" 
@@ -176,11 +173,11 @@ const Index = () => {
                     ></div>
                   </div>
                   <div className="flex justify-between text-xs mt-1">
-                    <span>{returnRate} poin</span>
-                    <span>100 poin</span>
+                    <span>{returnRate} points</span>
+                    <span>100 points</span>
                   </div>
                   <p className="text-xs text-gray-500 mt-2">
-                    Kumpulkan 100 poin untuk mendapatkan diskon pupuk 10%
+                    Collect 100 points to get a 10% fertilizer discount
                   </p>
                 </div>
               </div>

@@ -55,7 +55,7 @@ const AppSidebar = () => {
           </div>
           <div>
             <h2 className="text-white font-bold text-lg">FertiTrack</h2>
-            <p className="text-green-100 text-xs">ASIX Indonesia Cerdas</p>
+            <p className="text-green-100 text-xs">Smart Fertilizer Tracking</p>
           </div>
         </div>
       </SidebarHeader>
@@ -84,7 +84,7 @@ const AppSidebar = () => {
         <div className="px-4">
           <div className="bg-sidebar-accent p-3 rounded-md">
             <p className="text-sidebar-accent-foreground text-xs">
-              Sistem Manajemen Rantai Pasok Pupuk Berbasis RFID
+              Smart RFID-based Fertilizer Supply Chain Management System
             </p>
           </div>
         </div>
